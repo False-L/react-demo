@@ -1,1 +1,1 @@
-# 存放一些自己练下的react demo
+# reacttraining
