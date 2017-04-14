@@ -6,3 +6,6 @@
 - webpack
 - npm start
 - 浏览器输入 localhost:8080
+## 注意事项
+- react版本是v 15.5.3 在组件创建上推荐统一ES6的extends方式
+- react-router版本为v 2.0.0 
