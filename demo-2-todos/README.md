@@ -1,4 +1,4 @@
-# 一个根据官网计数器例子修改的例子
+# todos demo
 ## 重点在与react、redux以及react-router的混合使用，以及对redux的action、reducer以及store的理解
 ## 使用方式
 - 下载文件到本地
