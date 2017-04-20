@@ -1,0 +1,35 @@
+.cnodeHeader{
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+    background: #444;
+    font-size: 13px;
+    min-height:40px;
+    padding:5px;
+    .cnodeHeader-logo{
+        display:inline-block;
+        width:120px;
+        a{  
+            width:120px;
+            display:inline-block;
+            img{
+                height: auto;
+                max-width: 100%;
+                vertical-align: middle;
+                border: 0;
+                }
+        }
+    }
+    .cnodeHeader-nav{
+        & > a{
+            color:#ccc;
+            text-decoration: none;
+            padding:10px 15px;
+        }
+        & > a:hover{
+            color:white;
+        }
+    }
+}
