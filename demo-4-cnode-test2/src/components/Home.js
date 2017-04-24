@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import {render} from 'react-dom'
 import fetch from 'isomorphic-fetch'
 import CnodeMain from './CnodeMain'
@@ -7,6 +7,7 @@ import {connect}from 'react-redux'
 import PropTypes from 'prop-types'
 import HomeMain from './HomeMain'
 import HomeHeader from './HomeHeader'
+import {Link } from 'react-router-dom'
 
  class Home extends React.Component{
   componentDidMount(){
@@ -14,7 +15,7 @@ import HomeHeader from './HomeHeader'
     dispatch(fetchPostsIfNeeded(selectedCnode))
   }
   handleClick(e,nextCnode){
-     e.preventDefault()
+    // e.preventDefault()
     const { dispatch, selectedCnode } = this.props
     dispatch(selectCnode(nextCnode))
     dispatch(invalidateCnode(nextCnode))
@@ -26,37 +27,12 @@ import HomeHeader from './HomeHeader'
     return (
       <div className="main">
         <div>
-          {/*nav*/}
-          {!isFetching &&
-            <a href="#"
-               onClick={e=>this.handleClick(e,'all')}>
-              全部
-            </a>
-          }
-           {!isFetching &&
-            <a href="#"
-               onClick={e=>this.handleClick(e,'good')}>
-              精华
-            </a>
-          }
-           {!isFetching &&
-            <a href="#"
-               onClick={e=>this.handleClick(e,'share')}>
-              分享
-            </a>
-          }
-          {!isFetching &&
-            <a href="#"
-               onClick={e=>this.handleClick(e,'ask')}>
-              问答
-            </a>
-          }
-          {!isFetching &&
-            <a href="#"
-               onClick={e=>this.handleClick(e,'job')}>
-              招聘
-            </a>
-          }
+          {/*nav*/}      
+            <Link to='/?tab=all'  onClick={e=>this.handleClick(e,'all')}>全部</Link>
+            <Link to='/?tab=good'  onClick={e=>this.handleClick(e,'good')}>精华</Link>
+            <Link to='/?tab=share'  onClick={e=>this.handleClick(e,'share')}>分享</Link>
+            <Link to='/?tab=ask'  onClick={e=>this.handleClick(e,'ask')}>问答</Link>
+            <Link to='/?tab=job'  onClick={e=>this.handleClick(e,'job')}>招聘</Link>
           {/*api 显示*/}
    {isEmpty? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
           : <div style={{ opacity: isFetching ? 0.5 : 1 }}>
