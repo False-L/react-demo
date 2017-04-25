@@ -1,0 +1,64 @@
+.clearfix:after{
+    content:'';
+    display: table;
+    clear:both;
+}
+.clearfix:before{
+    display: table;
+    content:"";
+}
+.topicContentMain{
+    max-width: 900px;
+    margin:0 auto;
+}
+.topicContentMain img{
+    max-width: 800px;
+    margin:0 auto;
+}
+.markdown-text ul li{
+    list-style-type: none;
+    padding:1px;
+}
+
+.markdown-text table{
+    background: #DDD;
+}
+.markdown-text table thead{
+    background: #61DAFB;
+}
+.markdown-text table tbody tr{
+    background: #FFF;
+}
+.markdown-text table tbody tr:nth-child(odd){
+    background:#f6f6f6;
+}
+.markdown-text blockquote {
+    background: #DDD;
+}
+@media only screen and (max-width:480px){
+
+.topicContentMain img{
+    max-width: 460px;
+    margin:0 auto;
+}
+.markdown-text ul li{
+    list-style-type: none;
+    padding:1px;
+}
+
+.markdown-text table{
+    background: #DDD;
+}
+.markdown-text table thead{
+    background: #61DAFB;
+}
+.markdown-text table tbody tr{
+    background: #FFF;
+}
+.markdown-text table tbody tr:nth-child(odd){
+    background:#f6f6f6;
+}
+.markdown-text blockquote {
+    background: #DDD;
+}
+}

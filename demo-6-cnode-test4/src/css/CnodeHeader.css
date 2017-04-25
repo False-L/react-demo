@@ -1,0 +1,20 @@
+.cnodeHeader {
+  margin:0 auto;
+  text-align: center;
+}
+.cnodeHeader ul li{
+  display: inline-block;
+  margin:0 10px;
+}
+.cnodeHeader ul li a{
+   text-decoration: none;
+  
+}
+.cnodeHeader ul li a:hover{
+   text-decoration: none;
+}
+.cnodeHeader .cnodeheader-navlink {
+  color:#61DAFB;
+  font-family: sans-serif;
+  font-size:25px;
+}
