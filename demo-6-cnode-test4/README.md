@@ -1,4 +1,4 @@
-﻿# 一个根据例子修改的cnode社区demo
+﻿# 一个react-cnode社区demo
 ## 重点在与react、redux以及react-router的混合使用，以及对redux的action、reducer以及store的理解
 进一步修改的react-cnode
 ## 使用方式
