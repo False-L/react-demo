@@ -1,0 +1,153 @@
+.main{
+    min-height: 450px;
+    margin: 0 auto;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 1060px;
+    padding: 15px;
+    background-color: #FFF;
+      .mainbar{
+          position: relative;
+         float: left;
+         width: 728px;
+         margin: 0 0 0 0;
+         padding: 0;
+         .mainnav{
+            margin-bottom: 0;
+            clear:both;
+            height: 40px;
+            border-bottom: 1px solid #e4e6e8;
+            h1{
+                float: left;
+                margin-bottom: 0;
+                font-weight: normal;
+                color: #242729;
+                font-size: 20px;
+                line-height: 2.22;
+            }
+            #tabs{
+                position: relative;
+                float:right;
+                a{
+                   float: left;
+                    margin-right: 14px;
+                    color: #848d95;
+                    line-height: 1;
+                    text-decoration: none;
+                    border-bottom: 2px solid transparent;
+                    transition: all .15s ease-in-out;
+                    position: relative;
+                    padding: 12px 10px;
+                    background-color: #FFF;
+                    border: 1px solid transparent;
+                    font-size: 12px;
+                }
+                .active{
+                    color: #242729;
+                    padding-bottom: 14px;
+                    font-weight: 400;
+                    border-color: #e4e6e8;
+                    border-bottom-color: transparent;
+                    &:before{
+                        content: "";
+                        position: absolute;
+                        top: -1px;
+                        left: -1px;
+                        right: -1px;
+                        height: 2px;
+                        background-color: transparent;
+                        background-color: #f69c55;
+                    }
+                }
+}
+         }
+        }
+        .topics{
+            clear: both;
+            float: left;
+            width: 728px;
+            margin-bottom: 20px;
+            border:1px solid #f69c55;
+            min-height: 300px;
+            .topicItem{
+                overflow: hidden;
+                padding: 15px 0;
+                float: left;
+                width: 728px;
+                border-bottom: 1px solid #eff0f1;
+                padding: 12px 0 10px 0;
+                border-bottom: 1px solid #e4e6e8;
+                .count{
+                    width: 78px;
+                    float: left;
+                    margin-right: 8px;
+                    margin-left: 8px;
+                    .stats{
+                        margin:0;
+                        width:58px;
+                        text-align: center;
+                        .watches{
+                            text-align: center;
+                            color: #6a737c;
+                            font-size: 11px;
+                            padding: 0;
+                            margin-bottom: 8px;
+                        }
+                        .commentscount{
+                            color: #6a737c;
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+                .itemcontainer{
+                   float: left;
+                    width: 630px;
+                    h3{
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 1.4;
+                        margin-bottom: .5em;
+                    }
+                    .excerpt{
+                        padding: 0;
+                        padding-bottom: 5px;
+                        margin: 0;
+                        color: #3b4045;
+                    }
+                    .userinfo{
+                        float:right;
+                        color: #848d95;
+                        box-sizing: border-box;
+                        padding: 5px 6px 7px 7px;
+                        width: 200px;
+                        &:before{
+                            content: "";
+                            display: table;
+                        }
+                        .user-action-time{
+                            margin-top: 1px;
+                            margin-bottom: 2px;
+                            font-size: 12px;
+                            white-space: nowrap;
+                        }
+                        .user-avatar{
+                            float: left;
+                            width: 32px;
+                            height: 32px;
+                            border-radius: 1px;
+                            border: 1px solid #f69c55;
+                        }
+                        .user-detail{
+                            float: left;
+                            margin-left: 8px;
+                            width: calc(100% - 40px);
+                            line-height: 17px;
+                            word-wrap: break-word;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
