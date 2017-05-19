@@ -32,7 +32,7 @@ const Topics=({posts})=>(
                     </div>
                   </div>
                 <div className="itemcontainer">
-                  <h3><Link to="/" >{post.title}</Link></h3>
+                  <h3><Link to={`/topic/${post.id}`} >{post.title}</Link></h3>
                   <div className="excrept">简介</div>
                   <div className="userinfo">
                     <div className="user-action-time">

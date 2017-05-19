@@ -66,7 +66,7 @@ import Topics from './Topics'
 }
 
 function mapStateToProps(state){
-  const {selectedCnode,postsByCnode}=state
+  const {selectedCnode,postsByCnode,loginByCnode}=state
   const {
     isFetching,
     items:posts
@@ -74,10 +74,13 @@ function mapStateToProps(state){
     isFetching: true,
     items: []
   }
+  const {islogining,user}=loginByCnode
   return{
       selectedCnode,
       posts,
-      isFetching
+      isFetching,
+      islogining,
+      user
   }
 }
 export default connect(mapStateToProps)(Home)
