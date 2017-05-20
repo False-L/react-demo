@@ -55,26 +55,3 @@ export const fetchPostsIfNeeded = cnode => (dispatch, getState) => {
     return dispatch(fetchPosts(cnode))
   }
 }
-
-export const SIGNIN='SIGNIN' //登录
-export const SIGNOUT='SIGNOUT' //登出
-export const SIGNIN_SUCCESS='SIGNIN_SUCCESS' //登录成功
-
-export function signin(user){
-  return{
-    type:SIGNIN,
-    user
-  }
-}
-export function signout(user){
-  return{
-    type:SIGNOUT,
-    user
-  }
-}
-export function signinSuccess(user){
-  return{
-    typr:SIGNIN_SUCCESS,
-    user
-  }
-}

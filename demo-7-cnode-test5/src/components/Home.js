@@ -15,7 +15,6 @@ import Topics from './Topics'
     dispatch(fetchPostsIfNeeded(selectedCnode))
     if(location.search){
     const str=location.search.split("=")
-    console.log(str[1])
     dispatch(selectcnode(str[1]))
     dispatch(invalidatecnode(str[1]))
    dispatch(fetchPostsIfNeeded(str[1]))
@@ -23,7 +22,6 @@ import Topics from './Topics'
   }
   handlerClick(e,nextcnode){
     const {dispatch,selectedCnode,location}=this.props
-    console.log(nextcnode)
     dispatch(selectcnode(nextcnode))
     dispatch(invalidatecnode(nextcnode))
    dispatch(fetchPostsIfNeeded(nextcnode))
@@ -66,7 +64,7 @@ import Topics from './Topics'
 }
 
 function mapStateToProps(state){
-  const {selectedCnode,postsByCnode,loginByCnode}=state
+  const {selectedCnode,postsByCnode}=state
   const {
     isFetching,
     items:posts
@@ -74,13 +72,10 @@ function mapStateToProps(state){
     isFetching: true,
     items: []
   }
-  const {islogining,user}=loginByCnode
   return{
       selectedCnode,
       posts,
-      isFetching,
-      islogining,
-      user
+      isFetching
   }
 }
 export default connect(mapStateToProps)(Home)

@@ -4,6 +4,7 @@ import {HashRouter as Router ,Route ,Switch,Redirect } from 'react-router-dom'
 import App from './components/App'
 import Login from './components/Login'
 import Topic from './components/Topic'
+import CreateTopic from './components/CreateTopic'
 
 const Routes =() =>(
     <Router >
@@ -12,9 +13,10 @@ const Routes =() =>(
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/login' component={Login} />
-                <Route path='/topic/:id' component={Topic} />
-                {/*
                 <Route path='/topic/create' component={CreateTopic} />
+                <Route path='/topic/:id' component={Topic} />
+               
+                {/*
                 <Route path='/messages' component={Messages} />
                 <Route path='/user/:loginname' component={User} />
                 <Route path='/topic_collect/:loginname' component={Collect} />*/}

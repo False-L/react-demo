@@ -1,17 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import 'whatwg-fetch'
+import {signin} from '../actions'
+import {connect}from 'react-redux'
 
  class Login extends React.Component{
    constructor(props){
      super(props)
-     console.log(this.props)
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state={islogining:false}
    }
   componentDidMount(){
-       
+    const {dispatch,islogining}=this.props
+    if(localStorage.getItem('accesstoken')){
+      this.setState({islogining:true})
+    }
   }
  handleSubmit(e){
+     const {dispatch}=this.props
     e.preventDefault();
     let accesstoken=this.input.value;
     if(!accesstoken)  return alert('输入不能为空');
@@ -33,18 +39,18 @@ import 'whatwg-fetch'
         }
     }).then(res=>res.json())
     .then(data=>{
-        console.log('data',data)
-        localStorage.setItem("accesstoken",`${accesstoken}`)
+        localStorage.setItem("accesstoken",JSON.stringify(data))
         this.props.history.push('/')
     })
     .catch(function(err){
-        console.log(err)
         alert('登录失败');
     })
  }
   render(){
       return(
-          <div className="loginmain">
+          <div>
+          {!this.state.islogining?
+          <div className="loginmain">        
               <h1>填入你的accesstoken</h1>
               <form onSubmit={this.handleSubmit}>
               <label >
@@ -52,8 +58,10 @@ import 'whatwg-fetch'
               </label>
               <input type="submit" value="登录" className="submit"/>
               </form>
+          </div>:<div>已经登陆</div>}
           </div>
       )
   }
  }
+ 
  export default Login

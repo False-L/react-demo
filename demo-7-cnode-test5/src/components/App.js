@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import '../stylesheets/app.less'
 import {Icon} from 'antd'
-import Header from './Header'
-import Sidebar from './Sidebar'
+import Header from './common/Header'
+import Sidebar from './common/Sidebar'
 import QueueAnim from 'rc-queue-anim'
 
  class App extends React.Component{
@@ -25,7 +25,6 @@ import QueueAnim from 'rc-queue-anim'
           <Sidebar />
           </div>
           <div className={this.state.show?"overlayClass":"dino"} onClick={this.sideChange}>
-            diss
            </div> 
           <div className="content">
             <Header  key="a">
