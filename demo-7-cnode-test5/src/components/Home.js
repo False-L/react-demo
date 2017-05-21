@@ -31,12 +31,9 @@ import Topics from './Topics'
     console.log(this.props)
     const isEmpty = posts.length === 0
     return (
-      <div className="main" key="b">
+      <div className="main">
           <div className="mainbar">
-            <QueueAnim delay={300} 
-            className="queue-simple"
-            type={['right', 'left']}>
-            <div className="mainnav" key="a">
+            <div className="mainnav" >
               <h1>所有主题</h1>
              <div id="tabs">
               <Link to='/?tab=all' className={this.props.location.search==='?tab=all'?'active':this.props.location.search===""?"active":""}
@@ -51,12 +48,14 @@ import Topics from './Topics'
               onClick={e=>this.handlerClick(e,"job")}>招聘</Link>
               </div>
             </div>
-            <div className="topics" key="b">
+            <div className="topics">
           {/*api 显示*/}
    {isEmpty? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
           : <Topics posts={posts}/>}
-        </div>
-            </QueueAnim>
+            </div>
+           <div>
+            加载更多
+            </div>
             </div>
       </div>
     )

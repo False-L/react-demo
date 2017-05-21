@@ -17,25 +17,30 @@ import '../../stylesheets/sidebar.less'
   }
   onSignout(){
     localStorage.setItem('accesstoken','')
+    this.setState({user:''})
   }
    render(){
        const {user}=this.state
        return(
            <div className="side">
-            {localStorage.getItem('accesstoken')?
+            {user?
             <div className="side-main">
                   <div className="side-userinfo">      
                       <div className='user_avatar'>
-                          <img src={user.avatar_url} />
+                          <Link to={`/user/${user.loginname}`}><img src={user.avatar_url} /></Link>
                       </div>
                       <span>{user.loginname}</span>
                   </div>
                 <div className="side-panel">
                     <div><Link to='/'>首页</Link></div>
+                    <div><Link to='/?tab=good'>精华</Link></div>
+                    <div><Link to='/?tab=share'>分享</Link></div>
+                    <div><Link to='/?tab=ask'>问答</Link></div>
+                    <div><Link to='/?tab=job'>招聘</Link></div>
                     <ul>
                       <li><Link to='/topic/create'>发布话题</Link></li>
                       <li><Link to='/messages'>消息</Link></li>
-                      <li><Link to={`/user/${user.id}`}>详情</Link></li>
+                      <li><Link to={`/user/${user.loginname}`}>详情</Link></li>
                       <li><Link to={`/topic_collect/${user.id}`}>收藏</Link></li>
                     </ul>
                 </div>
@@ -49,6 +54,10 @@ import '../../stylesheets/sidebar.less'
                   </div>
                 <div className="side-panel">
                     <div><Link to='/'>首页</Link></div>
+                    <div><Link to='/?tab=good'>精华</Link></div>
+                    <div><Link to='/?tab=share'>分享</Link></div>
+                    <div><Link to='/?tab=ask'>问答</Link></div>
+                    <div><Link to='/?tab=job'>招聘</Link></div>
                 </div>
             </div>
               }

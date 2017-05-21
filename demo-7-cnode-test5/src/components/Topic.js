@@ -5,7 +5,7 @@ import '../stylesheets/topic.less'
 import {Link} from 'react-router-dom'
 import '../stylesheets/github-markdown.css'
 import moment from 'moment'
-import MyEditor from './common/MyEditor'
+
 import { BackTop } from 'antd';
 moment.locale('zh-cn');
 
@@ -30,9 +30,9 @@ class Topic extends Component{
             <div className='topic'>
                 <header className='topicHeader'> 
                 <h1>{this.state.data.title}</h1>
-                <div className="topic-btn">
+                {localStorage.getItem('accesstoken')?<div className="topic-btn">
                     <Link to='/topic/create' className='btn'>发布话题</Link>
-                </div>
+                </div>:""}
                 </header>
                 <section className='mainbar'>
                    <div dangerouslySetInnerHTML={{__html:this.state.data.content}} className='maekdown-body'/>
@@ -62,9 +62,11 @@ class Topic extends Component{
                                     <img src={reply.author.avatar_url} style={{height:'40px'}} title={reply.author.loginname} alt={reply.author.loginname}/>
                                 </Link>
                                 <div className="author_info" >
-                                    <Link to={`/user/${reply.author.loginname}`} className="reply_author">{reply.author.loginname}</Link>
-                                    {i+1}楼·<Link to="" className="reply_time">  {moment(reply.create_at).startOf('hour').fromNow()}</Link>
-                                    {data.author.loginname==reply.author.loginname?<span style={{font:'20px',background:'#61DAFB'}}>作者</span>:''}
+                                    <Link to={`/user/${reply.author.loginname}`} className="reply_author">
+                                    {reply.author.loginname}
+                                    </Link>
+                                    {i+1}楼·<Link to="" className="reply_time">{moment(reply.create_at).startOf('hour').fromNow()}</Link>
+                                    {data.author.loginname==reply.author.loginname?<span id="tags"style={{background:'#f69c55',color:"#fff"}}>作者</span>:''}
                                 </div>
                                 <div className="user_action" >
                                     <span >点赞</span>
