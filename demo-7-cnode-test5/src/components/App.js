@@ -4,8 +4,6 @@ import '../stylesheets/app.less'
 import {Icon} from 'antd'
 import Header from './common/Header'
 import Sidebar from './common/Sidebar'
-import QueueAnim from 'rc-queue-anim'
-
  class App extends React.Component{
    constructor(props){
      super(props)

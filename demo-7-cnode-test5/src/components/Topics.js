@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import QueueAnim from 'rc-queue-anim'
 import moment from 'moment'
 moment.locale('zh-cn');
 
@@ -25,9 +24,6 @@ function switchStyle(post){
 }
 const Topics=({posts})=>(
     <div className="">
-    <QueueAnim delay={300} 
-            className="queue-simple"
-            type={['right', 'left']}>
         { posts.map((post,i)=>(
               <div className="topicItem" key={i}>
                     <div className="user-avatar">
@@ -67,7 +63,6 @@ const Topics=({posts})=>(
                 </div>
                 </div>
         ))}
-        </QueueAnim>
           </div>
        )
  export default Topics

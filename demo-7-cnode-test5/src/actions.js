@@ -31,6 +31,7 @@ export function receivePosts(cnode,json) {
     posts:json.data
   }
 }
+
 export function fetchPosts(cnode){
     return dispatch=>{
         dispatch(requestPosts(cnode))

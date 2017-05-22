@@ -1,7 +1,6 @@
 import React from 'react'
 import '../stylesheets/home.less'
 import {Link} from 'react-router-dom'
-import QueueAnim from 'rc-queue-anim'
 import {selectcnode,fetchPostsIfNeeded,invalidatecnode} from '../actions'
 import {connect}from 'react-redux'
 import Topics from './Topics'

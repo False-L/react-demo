@@ -5,26 +5,36 @@ import '../stylesheets/topic.less'
 import {Link} from 'react-router-dom'
 import '../stylesheets/github-markdown.css'
 import moment from 'moment'
-
 import { BackTop } from 'antd';
 moment.locale('zh-cn');
 
+import { normalize, schema } from 'normalizr';
+
+const user = new schema.Entity('users',{},{idAttribute:"author_id"});
+const reply = new schema.Entity('replies', { 
+    author:[user] 
+});
+const article = new schema.Entity('articles', { 
+    replies:[reply],
+    author: [user]
+});
+//const normalizedData = normalize(data.data, article);
 class Topic extends Component{
     constructor(props){
         super(props);
          this.state = { data:{} };
+         console.log(this.props)
     }
     componentDidMount(){
         const {id}=this.props.match.params
         fetch(`https://cnodejs.org/api/v1/topic/${id}`)
-        .then(res=>res.json())
+        .then(res=>res.json()).then(res=>console.log(normalize(res.data, article)))
         .then(json=>this.setState({data:json.data}))
     }
     componentDidUpdate (){ 
-
     }
     render(){
-
+        console.log(this.state)
         const {data}=this.state
         return(
             <div className='topic'>
@@ -86,4 +96,9 @@ class Topic extends Component{
         )
     }
 }
-export default Topic
+function  mapStateToProps(state){
+    return {
+            state
+    }
+}
+export default connect(mapStateToProps)(Topic)
