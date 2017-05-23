@@ -33,3 +33,22 @@ const data={
 
 const normalizedData = normalize(data, article);
 console.log(normalizedData)
+
+
+import { normalize, schema } from 'normalizr';
+
+const user = new schema.Entity('users',{},{idAttribute:"loginname"});
+const article = new schema.Entity('articles',{
+  author:user
+});
+const feedScema={
+  data:[article]
+}
+export function fetchPosts(cnode){
+    return dispatch=>{
+        dispatch(requestPosts(cnode))
+        return fetch(`https://cnodejs.org/api/v1/topics?tab=${cnode}&limit=30`)
+        .then(res=>res.json()).then(res=>console.log(normalize(res, feedScema)))
+        .then(json=>dispatch(receivePosts(cnode,json)))
+    }
+}

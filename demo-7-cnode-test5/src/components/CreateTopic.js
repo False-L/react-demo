@@ -22,7 +22,7 @@ import '../stylesheets/CreateTopic.less'
           <div className="createTopic">        
               <h1>发布话题</h1>
               <form className="createTopicForm" onSubmit={this.handleSubmit}>
-              <label >选择版块:</label>
+              <label >选择版块: </label>
               <select name="tab" id="topicSelect">
                   <option value>请选择</option>
                   <option value='share'>分享</option>

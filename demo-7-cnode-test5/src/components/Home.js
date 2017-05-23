@@ -27,7 +27,6 @@ import Topics from './Topics'
   }
   render(){
     const {posts,isFetching }=this.props
-    console.log(this.props)
     const isEmpty = posts.length === 0
     return (
       <div className="main">

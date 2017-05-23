@@ -40,6 +40,7 @@ import {connect}from 'react-redux'
     }).then(res=>res.json())
     .then(data=>{
         localStorage.setItem("accesstoken",JSON.stringify(data))
+        dispatch({type:'SIGNIN_SUCCESS'})
         this.props.history.push('/')
     })
     .catch(function(err){
@@ -63,5 +64,9 @@ import {connect}from 'react-redux'
       )
   }
  }
- 
- export default Login
+ function  mapStateToProps(state){
+    return {
+            state
+    }
+}
+ export default connect(mapStateToProps)(Login)

@@ -10,31 +10,30 @@ moment.locale('zh-cn');
 
 import { normalize, schema } from 'normalizr';
 
-const user = new schema.Entity('users',{},{idAttribute:"author_id"});
+const user = new schema.Entity('users',{},{idAttribute:"loginname"});
 const reply = new schema.Entity('replies', { 
-    author:[user] 
+    author:user
 });
 const article = new schema.Entity('articles', { 
     replies:[reply],
-    author: [user]
+    author: user
 });
 //const normalizedData = normalize(data.data, article);
+//.then(res=>console.log(normalize(res.data, article)))
 class Topic extends Component{
     constructor(props){
         super(props);
          this.state = { data:{} };
-         console.log(this.props)
     }
     componentDidMount(){
         const {id}=this.props.match.params
         fetch(`https://cnodejs.org/api/v1/topic/${id}`)
-        .then(res=>res.json()).then(res=>console.log(normalize(res.data, article)))
+        .then(res=>res.json())
         .then(json=>this.setState({data:json.data}))
     }
     componentDidUpdate (){ 
     }
     render(){
-        console.log(this.state)
         const {data}=this.state
         return(
             <div className='topic'>

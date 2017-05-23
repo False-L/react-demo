@@ -12,6 +12,7 @@ module.exports = {
       contentBase: path.join(__dirname, "build"),//devServer目录
       compress: true,//开启gzip
       port: 9000,
+      inline:true,
       clientLogLevel: "none",//阻止消息产生
   },
   module: {
