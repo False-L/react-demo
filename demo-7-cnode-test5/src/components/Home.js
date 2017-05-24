@@ -8,6 +8,7 @@ import Topics from './Topics'
  class Home extends React.Component{
    constructor(props){
      super(props)
+
    }
   componentDidMount(){
     const {dispatch,selectedCnode,location}=this.props
@@ -26,7 +27,7 @@ import Topics from './Topics'
    dispatch(fetchPostsIfNeeded(nextcnode))
   }
   render(){
-    const {posts,isFetching }=this.props
+    const {posts,isFetching,entities }=this.props
     const isEmpty = posts.length === 0
     return (
       <div className="main">
@@ -49,10 +50,7 @@ import Topics from './Topics'
             <div className="topics">
           {/*api 显示*/}
    {isEmpty? (isFetching ? <h2>Loading...</h2> : <h2>Empty.</h2>)
-          : <Topics posts={posts}/>}
-            </div>
-           <div>
-            加载更多
+          :  <Topics posts={posts}/>}
             </div>
             </div>
       </div>
@@ -61,7 +59,10 @@ import Topics from './Topics'
 }
 
 function mapStateToProps(state){
-  const {selectedCnode,postsByCnode}=state
+  const {selectedCnode,
+    postsByCnode
+  }=state
+
   const {
     isFetching,
     items:posts

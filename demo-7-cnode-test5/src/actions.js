@@ -45,38 +45,11 @@ export function receivePosts(cnode,json) {
     posts:json.data
   }
 }
-import { normalize, schema } from 'normalizr'
-
-const API_ROOT="https://cnodejs.org/api/v1"
-const user = new schema.Entity('users',{},{idAttribute:"loginname"});
-const article = new schema.Entity('articles',{
-  author:user
-});
-const feedScema={
-  data:[article]
-}   
-function fetchtopics(cnode,page=1,schema){
-        const fullurl=API_ROOT+`/topics/?tab=${cnode}&page=${page}&limit=30`
-         return dispatch=>{
-        return fetch(fullurl)
-        .then(res=>res.json())
-        .then(json=>{
-            if(!json.success){
-                return Promise.reject(json)
-            }
-            const nextPageUrl=API_ROOT+`/topcis/?tab=${cnode}&page=${page+1}&limit=30`
-            return Object.assign({},
-            normalize(json, feedScema),
-            {nextPageUrl}
-            )
-        })
-         }
-}
 
 export function fetchPosts(cnode){
     return dispatch=>{
         dispatch(requestPosts(cnode))
-        return fetch(`https://cnodejs.org/api/v1/topics?tab=${cnode}&limit=30`)
+        return fetch(`https://cnodejs.org/api/v1/topics?tab=${cnode}&limit=30&page=1`)
         .then(res=>res.json())
         .then(json=>dispatch(receivePosts(cnode,json)))
     }

@@ -10,8 +10,7 @@ class Header extends React.Component{
         return(
             <header className="header">
             <nav className="headerNav">
-            {this.props.children}  
-           cnode
+            {this.props.children} 
             </nav>
             </header>
         )

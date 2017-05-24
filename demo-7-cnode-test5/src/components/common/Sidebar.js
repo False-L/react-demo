@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import {connect}from 'react-redux'
 import '../../stylesheets/sidebar.less'
 import {selectcnode,fetchPostsIfNeeded,invalidatecnode} from '../../actions'
+import avatar from'../../static/img/avatar.gif'
+
 //75a9691d-1ebd-4fbc-a294-490ce9217e68
  class Sidebar extends React.Component{
    constructor(props){
@@ -64,7 +66,7 @@ import {selectcnode,fetchPostsIfNeeded,invalidatecnode} from '../../actions'
             <div className="side-main">
                   <div className="side-userinfo">      
                       <div className='user_avatar'>
-                          <Link to='/login'>sd</Link>
+                          <Link to='/login'><img src={avatar} /></Link>
                       </div>
                       <span>点击头像登录</span>
                   </div>

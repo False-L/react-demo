@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import moment from 'moment'
 moment.locale('zh-cn');
 
-
 function switchSpn(post){
   if(post.top) return "置顶";
   if(post.good) return "精品";

@@ -25,7 +25,7 @@ import Sidebar from './common/Sidebar'
           <div className={this.state.show?"overlayClass":"dino"} onClick={this.sideChange}>
            </div> 
           <div className="content">
-            <Header  key="a">
+            <Header>
               <Icon type="menu-unfold" onClick={this.sideChange} className="icon"/>
             </Header>
             {this.props.children}

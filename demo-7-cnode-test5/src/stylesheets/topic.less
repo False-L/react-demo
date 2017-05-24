@@ -78,40 +78,67 @@
         .repliesHeader{
             clear: both;
             margin-bottom: 10px;
-            height: 40px;
+            font-size: 20px;
+            padding:0 14px;
+            color:#fff;
             border-bottom: 1px solid #e4e6e8;
-            background: #eee;
-            border-radius: 3px;
+            background: #F48024;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 1em;
         }
         .repliesMain{
+             position: relative;
+             width: 100%;
             .replyItem{
                 position: relative;
                 padding: 10px 0 10px 10px;
                 font-size: 14px;
                 padding-right: 10px;
                 background: #fff;
-                border-top: 1px solid #f0f0f0;
-                .user_avatar{
-                    display: inline-block;
-                    float: left;
-                    img{
-                        border-radius: 3px;
+                border-bottom: 1px solid #ddd;
+                width:100%;
+            }
+            .replyItemMain{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    .authorAvatar{
+                        .user_avatar{
+                        display: inline-block;
+                        margin-right:6px;
+                        img{
+                            border-radius: 3px;
+                            }
+                        }
+                    }
+                    .author_comments{
+                        position: relative;
+                        width:100%;
+                        .author_info{
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            .user_info{
+                                margin:0 0 10px 10px;
+                            }
+                            .user_action{
+                            margin-left: 20px;
+                            font-size: 15px;
+                            float:right;
+                             }
+                        }
+                        .reply_content{
+                            position: relative;
+                            width:100%;
+                            padding-left: 10px;
+                            color: #333;
+                        }
                     }
                 }
-                .author_info{
-                    margin-left: 10px;
-                    display: inline-block;
-                }
-                .user_action{
-                    float: right;
-                    margin-left: 20px;
-                    font-size: 15px;
-                }
-                .reply_content{
-                    padding-left: 50px;
-                    color: #333;
-                }
-            }
+                
+            
         }
     }
     &::before,&::after{
