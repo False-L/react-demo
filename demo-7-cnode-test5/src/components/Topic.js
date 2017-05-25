@@ -8,18 +8,6 @@ import moment from 'moment'
 import { BackTop } from 'antd';
 moment.locale('zh-cn');
 
-import { normalize, schema } from 'normalizr';
-
-const user = new schema.Entity('users',{},{idAttribute:"loginname"});
-const reply = new schema.Entity('replies', { 
-    author:user
-});
-const article = new schema.Entity('articles', { 
-    replies:[reply],
-    author: user
-});
-//const normalizedData = normalize(data.data, article);
-//.then(res=>console.log(normalize(res.data, article)))
 class Topic extends Component{
     constructor(props){
         super(props);
@@ -35,6 +23,12 @@ class Topic extends Component{
     }
     componentDidUpdate (){ 
     }
+    scrollToAnchor (anchorName) {
+    if (anchorName) {
+        let anchorElement = document.getElementById(anchorName);
+        if(anchorElement) { anchorElement.scrollIntoView(); }
+    }
+  }
     handlerReply(e){
         alert("ssssdd")
     }
